@@ -53,24 +53,63 @@ As you can see, this line is also a comment.
 #      """
 #    pass
 #"
-print("Game Rules: /n"
-        "Rock(1) vs Scissors(3)   --> Rock(1) wins/n"
-        "Scissors(3) vs Paper(2)  --> Scissors(3) win/n"
-        "Paper(2) vs Rock(1)      --> Paper(2) wins)/n")
 
-print("#Hello User please enter your name:")
+
+print("#Hello User please enter your name down below")
 
 User_name = input("Enter User`s name:")
 
 print("Hello" , User_name + " Welcome to Rock Paper Scissor game in python Created by Roman Karpov , Enjoy and have a good time!")
 
-print(User_name + " Please enter your choice : Rock , Paper or Scissors:")
+print("Game Rules : "
+        "Rock(1) vs Scissors(3)  --> Rock(1) wins |"
+        " Scissors(3) vs Paper(2)  --> Scissors(3) win |"
+        " Paper(2) vs Rock(1)  --> Paper(2) wins")
 
-Users_choice = input("Enter" , User_name + "`s choice:")
+gamelist = ["Rock","Paper","Scissors"]
+
+from random import randint
+AI = gamelist[randint(0,2)]
+
+User = False
+
+while User == False:
+
+    print(User_name + " Please enter your choice down below")
+    User = input("Rock, Paper, Scissors?")
+    if User == AI:
+        print("Its a tie!")
+    elif User == "Rock":
+        if AI == "Paper":
+            print("You lose! Computers choice:", AI, "Wins this time! Your choice:", User)
+        else:
+            print("You win! Your choice:", User, "Wins this time! Computer's choice:", AI)
+    elif User == "Paper":
+        if AI == "Scissors":
+            print("You lose! Computer's choice", AI, "Wins this time! Your choice:", User)
+        else:
+            print("You win! Your choice:", User, "Wins this time! Computer's choice:", AI)
+    elif User == "Scissors":
+        if AI == "Rock":
+            print("You lose! Computers choice:", AI, "Wins this time! Your choice:", User)
+        else:
+            print("You win! Your choice:", User, "Wins this time! Computers choice:", AI)
+    else:
+        print("That's not a valid choice. Check your spelling!")
+
+    User = False
+    AI = gamelist[randint(0,2)]
+
+    Newgame = input("Do you want to keep playing? Choose y for yes , Choose any other key/s for game shut down.\n")
+    if Newgame == 'y':
+        print("New game has started!")
+    else:
+          break
 
 
 
-gamelist = ("Rock","Paper","Scissors")
+
+
 
 
 

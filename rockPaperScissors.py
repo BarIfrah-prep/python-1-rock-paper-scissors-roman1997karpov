@@ -100,11 +100,18 @@ while User == False:
     User = False
     AI = gamelist[randint(0,2)]
 
-    Newgame = input("Do you want to keep playing? Choose y for yes , Choose any other key/s for game shut down.\n")
+    Newgame = input("Do you want to keep playing? Choose y/n\n")
+    while Newgame != "y" and Newgame != "n":
+        print("Invalid answer , please choose y/n")
+        Newgame = input("Do you want to keep playing? Choose y/n\n")
+
     if Newgame == 'y':
         print("New game has started!")
-    else:
-          break
+    elif Newgame =="n":
+        print("Thanks for playing goodbye")
+        break
+
+
 
 
 
